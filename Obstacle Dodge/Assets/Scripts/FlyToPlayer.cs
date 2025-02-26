@@ -8,6 +8,11 @@ public class FlyToPlayer : MonoBehaviour
 
     Vector3 playerPosition;
 
+    void Awake()
+    {
+       // gameObject.SetActive( false );
+    }
+
     void Start()
     {
         playerPosition = playerTransform.transform.position;

@@ -4,7 +4,6 @@ using UnityEngine;
 public class TriggerProjectile : MonoBehaviour
 {
     [SerializeField] GameObject[] Projectiles;
-    // [SerializeField] GameObject Projectile;
 
     void OnTriggerEnter( Collider other )
     {
@@ -21,7 +20,7 @@ public class TriggerProjectile : MonoBehaviour
                 projectile.SetActive( true );
             }
 
-            // Projectile.SetActive( true );
+            Destroy( gameObject );
         }
     }
 }
