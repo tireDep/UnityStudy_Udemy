@@ -4,13 +4,17 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] InputAction thrust;
-    Rigidbody rb;
-    [SerializeField] float thrustStrength = 10.0f;
+    // Parameters = for tuning, typically set int the editor
+    // Cache - eg. references for readability or speed
+    // State - private instances (member) variables
 
+    [SerializeField] InputAction thrust;
+    [SerializeField] float thrustStrength = 10.0f;
     [SerializeField] InputAction rotation;
     [SerializeField] float rotationStrength = 10.0f;
+    [SerializeField] AudioClip mainEngine;
 
+    Rigidbody rb;
     AudioSource audioSource;
 
     void Start()
@@ -39,7 +43,7 @@ public class Movement : MonoBehaviour
 
             if( audioSource.isPlaying == false )
             {
-                audioSource.Play();
+                audioSource.PlayOneShot( mainEngine );
             }
         }
         else

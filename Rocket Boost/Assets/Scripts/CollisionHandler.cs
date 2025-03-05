@@ -1,8 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float loadDelayTime = 2.0f;
+    [SerializeField] AudioClip hitObstacleSound;
+    [SerializeField] AudioClip landingSound;
+
+    AudioSource audioSource;
+
+     void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         switch ( collision.gameObject.tag )
@@ -19,16 +31,30 @@ public class CollisionHandler : MonoBehaviour
             break;
             case "Finish":
             {
-                LoadNextLevel();
+                StartSuccessSequence();
             }
             break;
             default:
             {
-                ReloadLevel(); 
+                StartCrashSequence();
             }
             break;
         }
 
+    }
+
+    private void StartSuccessSequence()
+    {
+        audioSource.PlayOneShot( landingSound );
+        GetComponent<Movement>().enabled = false;
+        Invoke( "LoadNextLevel", loadDelayTime );
+    }
+
+    void StartCrashSequence()
+    {
+        audioSource.PlayOneShot( hitObstacleSound );
+        GetComponent<Movement>().enabled = false;
+        Invoke( "ReloadLevel", loadDelayTime );
     }
 
     void ReloadLevel()

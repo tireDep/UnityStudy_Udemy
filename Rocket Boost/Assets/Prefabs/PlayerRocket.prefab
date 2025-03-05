@@ -95,8 +95,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3afa9aa13d446ec4ca27600b02175dbe, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3afa9aa13d446ec4ca27600b02175dbe, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -310,6 +310,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   rotationStrength: 100
+  mainEngine: {fileID: 8300000, guid: 3afa9aa13d446ec4ca27600b02175dbe, type: 3}
 --- !u!114 &7990043295828633261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b67075b1649d774591656e8191fee80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadDelayTime: 2
+  hitObstacleSound: {fileID: 8300000, guid: 24d11033f26a0be4e846ea6abde299d5, type: 3}
+  landingSound: {fileID: 8300000, guid: f7da99119fcd99043af1c664a456d859, type: 3}
 --- !u!1001 &169054479561929034
 PrefabInstance:
   m_ObjectHideFlags: 0
